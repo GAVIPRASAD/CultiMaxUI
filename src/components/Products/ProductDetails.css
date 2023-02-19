@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400&display=swap');
+ body{
+  background-color: rgba(76, 139, 27, 0.956);
+ }
+ 
+h6{
+  font-family: Ubuntu;
+}
+.desc{
+  font-family: Catamaran;
+}
+Button {
+  color: chartreuse;
+  
+}
+Button:hover {
+  color: rgb(255, 255, 255);
+  background-color: hsl(64, 100%, 77%);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.btn1:hover{
+  color: rgb(115, 224, 25);
+  background-color: rgb(255, 240, 240);
+}
+.btng:hover{
+  background-color: rgb(220, 180, 21);
+  color: rgb(0, 37, 69);
+}
+
+.bbbb{
+  color: rgb(17, 112, 0);
+}

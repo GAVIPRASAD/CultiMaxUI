@@ -1,0 +1,24 @@
+/* Card  */
+.ProductCard {
+  margin: 0.7rem;
+}
+* {
+  font-family: Ubuntu;
+}
+
+Button {
+  color: chartreuse;
+}
+Button:hover {
+  color: rgb(255, 255, 255);
+  background-color: hsl(64, 100%, 19%);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.ProductCard:hover {
+  background-color: rgba(255, 255, 252, 0.951);
+  /* background-color: rgba(1, 174, 254, 0.951); */
+  border-radius: 10px;
+  padding: 0.1rem;
+  /* border: 2px solid rgb(236, 139, 48); */
+}
