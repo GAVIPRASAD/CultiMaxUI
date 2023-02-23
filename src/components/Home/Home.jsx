@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import ProductCard from "../Products/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../actions/ProductActions";
+import Metadata from "../../more/Metadata";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Home = () => {
 
   return (
     <>
+    <Metadata title={"CultiMax || Home"}/>
       <Appbar />
       <Slides />
       {/* mid page */}

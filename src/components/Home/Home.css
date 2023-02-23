@@ -16,6 +16,9 @@
   margin-top: 5px;
 }
 
+.pa{
+  background-color: hsl(64, 100%, 34%);
+}
 /* Navbar */
 .nav{
   background-color: hsl(64, 100%, 6%);
