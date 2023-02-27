@@ -20,6 +20,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { clearErrors, register } from "../../actions/UserActions";
 import validator from "validator";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Copyright(props) {
   return (
@@ -70,29 +72,26 @@ export default function SignUp({ history }) {
     function refreshPage() {
       window.location.reload(false);
     }
-   
-      if(name==="" && password==="" && email===""){
-        alert("Enter details");
-      }
-      if(name.length >= 3){
-        if (validator.isEmail(email)) {
-           if (validator.isStrongPassword(password)) {
-             dispatch(register(myForm));
-             refreshPage();
-           }
-           else{
-            alert("Enter Valid Password\n{ minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }")
-           }
-        } 
-        else{
-          alert("Enter Valid Email")
-        }
-      }
-      else{
-        alert("Name Must be greater than or equal to 3")
-      }
-    
 
+    if (name === "" && password === "" && email === "") {
+      toast("Enter details");
+    }
+    if (name.length >= 3) {
+      if (validator.isEmail(email)) {
+        if (validator.isStrongPassword(password)) {
+          dispatch(register(myForm));
+          refreshPage();
+        } else {
+          toast(
+            "Enter Valid Password\n{ minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }"
+          );
+        }
+      } else {
+        toast("Enter Valid Email");
+      }
+    } else {
+      toast("Name Must be greater than or equal to 3");
+    }
   };
   const location = useLocation();
   const navigate = useNavigate();
@@ -100,7 +99,8 @@ export default function SignUp({ history }) {
 
   useEffect(() => {
     if (error) {
-      alert(error);
+      // alert(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
 
@@ -125,7 +125,6 @@ export default function SignUp({ history }) {
 
   return (
     <ThemeProvider theme={theme}>
-      
       <MetaData title="Signup" />
       <Appbar />
       <Container
@@ -261,6 +260,18 @@ export default function SignUp({ history }) {
         <Copyright sx={{ mt: 5 }} style={{ color: "rgb(17, 112, 0)" }} />
       </Container>
       <Footer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </ThemeProvider>
   );
 }

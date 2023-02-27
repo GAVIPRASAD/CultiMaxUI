@@ -1,16 +1,26 @@
 import axios from "axios";
-import { ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, ALL_PRODUCT_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL, CLEAR_ERRORS} from "../constans/ProductConstans";
+import { ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, ALL_PRODUCT_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL, CLEAR_ERRORS, NEW_REVIEW_REQUEST, NEW_REVIEW_SUCCESS, NEW_REVIEW_FAIL} from "../constans/ProductConstans";
 
 export const getProduct =
-  (keyword = "", currentPage = 1, category) =>
+  (keyword = "", currentPage , category) =>
   async (dispatch) => {
     try { 
       dispatch({
         type: ALL_PRODUCT_REQUEST,
       });
-      let link = `/api/v1/products`;
+      let link = `/api/v1/products?page=${currentPage}`;
+      // console.log(category)
+      if(keyword){
+         link = `/api/v1/products?keyword=${keyword}&page=${currentPage}`;
+      }
+      if(category){
+       link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}`;
+      }
+
+      // let link = `/api/v1/products`;
       const { data } = await axios.get(link);
-      
+      // console.log(data)
+        
       dispatch({
         type: ALL_PRODUCT_SUCCESS,
         payload: data,
@@ -41,6 +51,36 @@ export const getProduct =
         });
       }
     };
+
+
+
+    // NEW REVIEW
+export const newReview = (reviewData) => async (dispatch) => {
+  try {
+    dispatch({ type: NEW_REVIEW_REQUEST });
+
+    // const config = {
+    //   headers: { "Content-Type": "application/json" },
+    // };
+    // console.log(reviewData)
+    const { data } = await axios.post(`/api/v1/products/review`, reviewData)
+    // .catch(
+    //   function(error)
+    //   {console.log(error)}
+    //   );
+
+    dispatch({
+      type: NEW_REVIEW_SUCCESS,
+      payload: data.success,
+    });
+  } catch (error) {
+    dispatch({
+      type: NEW_REVIEW_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
 
   //Clear Errors
   export const clearErrors= () => async (dispatch)=>{

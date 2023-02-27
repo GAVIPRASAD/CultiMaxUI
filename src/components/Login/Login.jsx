@@ -22,7 +22,8 @@ import Loader from "../Loader/Loader";
 import { useEffect } from "react";
 import { clearErrors, login } from "../../actions/UserActions";
 import MetaData from "../../more/Metadata";
-import { Snackbar } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Copyright(props) {
   return (
@@ -70,12 +71,13 @@ export default function Login({ history }) {
 
   useEffect(() => {
     if (error) {
+      toast.error(error);
       // toast.error(error);
       dispatch(clearErrors());
     }
 
     if (isAuthenticated) {
-     navigate(redirect);
+      navigate(redirect);
     }
   }, [dispatch, error, alert, history, redirect, isAuthenticated]);
 
@@ -175,10 +177,12 @@ export default function Login({ history }) {
                 </Button>
                 <Grid container>
                   <Grid item xs style={{ color: "rgb(17, 112, 0)" }}>
-                  <Link to={"/myprofile/forgotpassword"} style={{ color: "rgb(17, 112, 0)" }}>
-
-                    Forgot password?
-                  </Link>
+                    <Link
+                      to={"/myprofile/forgotpassword"}
+                      style={{ color: "rgb(17, 112, 0)" }}
+                    >
+                      Forgot password?
+                    </Link>
                   </Grid>
                   <Grid item>
                     <Link to={"/Signup"} style={{ color: "rgb(17, 112, 0)" }}>
@@ -194,6 +198,18 @@ export default function Login({ history }) {
             />
           </Container>
           {/* <Footer/> */}
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
         </ThemeProvider>
       )}
     </>

@@ -9,6 +9,7 @@ import "./ProductCard.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
+import Badge from 'react-bootstrap/Badge';
 
 const ProductCard = ({ product }) => {
   const options = {
@@ -26,7 +27,8 @@ const ProductCard = ({ product }) => {
       {/* maxWidth: 345 , height:333, width:280 */}
       <Link to={`/products/${product._id}`} style={{ textDecoration: "none" }}>
         <Card
-          sx={{ maxWidth: 345, height: 350, width: 310 }}
+          // sx={{ maxWidth: 345, height: 350, width: 310 }}
+          sx={{ maxWidth: 340, height: 200, width: 210 }}
           className="ProductCard"
           style={{
             borderRadius: "10px",
@@ -35,7 +37,7 @@ const ProductCard = ({ product }) => {
           }}
         >
           <CardMedia
-            sx={{ height: 190 }}
+            sx={{ height: 100 }}
             image={product && product.images[0].url}
             title={product && product.name}
           />
@@ -44,7 +46,7 @@ const ProductCard = ({ product }) => {
               gutterBottom
               variant="h6"
               component="div"
-              style={{ fontFamily: "Ubuntu" }}
+              style={{ fontFamily: "Ubuntu" , margin:"0"}}
             >
               {product && product.name}
             </Typography>
@@ -53,23 +55,26 @@ const ProductCard = ({ product }) => {
               color="text.secondary"
               style={{ fontFamily: "Ubuntu" }}
             >
-              {product && product.description}
+              {(product && product.description).toString().substring(0,38)}...
             </Typography>
             <Typography
               variant="body2"
               color="text.secondary"
-              style={{ fontFamily: "Ubuntu" }}
+              style={{ fontFamily: "Ubuntu", margin:"0" }}
             >
               <Rating
                 // name="half-rating"
                 // defaultValue={product && product.ratings}
-                // size="small"
+                size="small"
                 // readOnly
                 {...options}
               />
             </Typography>
+          <Badge bg="warning" text="dark">
+             CultiMax Assured
+           </Badge>
           </CardContent>
-          <CardActions>
+          {/* <CardActions>
             <Button
               size="small"
               variant="contained"
@@ -89,7 +94,7 @@ const ProductCard = ({ product }) => {
             <Button size="small" variant="contained" color="error">
               <FavoriteIcon />
             </Button>
-          </CardActions>
+          </CardActions> */}
         </Card>
       </Link>
     </>

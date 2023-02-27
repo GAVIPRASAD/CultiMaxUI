@@ -1,6 +1,6 @@
 /* Card  */
 .ProductCard {
-  margin: 0.7rem;
+  margin: 0.6rem 0.3rem;
 }
 * {
   font-family: Ubuntu;
@@ -17,8 +17,8 @@ Button:hover {
 }
 .ProductCard:hover {
   background-color: rgba(255, 255, 252, 0.951);
-  /* background-color: rgba(1, 174, 254, 0.951); */
+  background-color: hsl(64, 100%, 91%);
   border-radius: 10px;
-  padding: 0.1rem;
+  padding: 1px;
   /* border: 2px solid rgb(236, 139, 48); */
 }

@@ -26,7 +26,18 @@
   color: aliceblue;
   /* padding: 10px 0px; */
 }
+.categ{
+  text-align: center;
+}
+.categ:hover{
+  /* background-color: rgb(122, 193, 255); */
+  /* text-align: center; */
+  /* padding: 0.2px; */
+  border-bottom: 2.5px solid greenyellow;
+  border-radius: 15px;
+  
 
+}
 .navli{
   padding-top: 0.5rem;
 }
@@ -65,6 +76,11 @@ Nav,i:hover{
 .car-img{
   height: 65vh;
   /* height: 500px; */
+}
+
+.hmbtn:hover{
+  color: rgb(255, 119, 0);
+  border-bottom: 3px solid green;
 }
 
 .homeHeading{

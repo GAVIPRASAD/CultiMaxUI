@@ -2,7 +2,14 @@ import {
   ALL_PRODUCT_FAIL,
   ALL_PRODUCT_REQUEST,
   ALL_PRODUCT_SUCCESS,
+  CATEGORY_FAIL,
+  CATEGORY_REQUEST,
+  CATEGORY_SUCCESS,
   CLEAR_ERRORS,
+  NEW_REVIEW_FAIL,
+  NEW_REVIEW_REQUEST,
+  NEW_REVIEW_RESET,
+  NEW_REVIEW_SUCCESS,
   PRODUCT_DETAILS_FAIL,
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
@@ -19,6 +26,8 @@ export const productsReducer = (state = { products: [] }, action) => {
       return {
         loading: false,
         products: action.payload.products,
+        productsCount: action.payload.productsCount,
+        resultPerPage: action.payload.resultPerPage,
       };
     case ALL_PRODUCT_FAIL:
       return {
@@ -61,3 +70,67 @@ export const productDetailsReducer = (state = { product: {} }, action) => {
       return state;
   }
 };
+
+
+// Product review
+export const newReviewReducer = (state = {}, action) => {
+  switch (action.type) {
+    case NEW_REVIEW_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case NEW_REVIEW_SUCCESS:
+      return {
+        loading: false,
+        success: action.payload,
+      };
+    case NEW_REVIEW_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case NEW_REVIEW_RESET:
+      return {
+        ...state,
+        success: false,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+    default:
+      return state;
+  }
+};
+
+
+// // extra 
+// export const categoryReducer = (state = { products: [] }, action) => {
+//   switch (action.type) {
+//     case CATEGORY_REQUEST:
+//       return {
+//         loading: true,
+//         products: [],
+//       };
+//     case CATEGORY_SUCCESS:
+//       return {
+//         loading: false,
+//         products: action.payload.products,
+//       };
+//     case CATEGORY_FAIL:
+//       return {
+//         loading: false,
+//         error: action.payload,
+//       };
+//     case CLEAR_ERRORS:
+//       return {
+//         ...state,
+//         error: null,
+//       };
+//     default:
+//       return state;
+//   }
+// };
