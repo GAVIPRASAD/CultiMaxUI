@@ -20,9 +20,11 @@ import {
   UPDATE_ORDER_SUCCESS,
 } from "../constans/OrderConstans";
 import { CLEAR_ERRORS } from "../constans/OrderConstans";
-const url = "https://cultimax-gps52376.b4a.run"
+// import { url } from "./url";
+
 // Create Order
 export const createOrder = (order) => async (dispatch) => {
+
   try {
     dispatch({ type: CREATE_ORDER_REQUEST });
 
@@ -31,7 +33,7 @@ export const createOrder = (order) => async (dispatch) => {
     //     "Content-Type": "application/json",
     //   },
     // };
-    const { data } = await axios.post(`${url}/api/v1/order/new`, order)
+    const { data } = await axios.post(`/api/v1/order/new`, order)
     .catch(function(error)
     {
       // console.log(error)
@@ -49,10 +51,11 @@ export const createOrder = (order) => async (dispatch) => {
 
 // My Orders
 export const myOrders = () => async (dispatch) => {
+
     try {
       dispatch({ type: MY_ORDERS_REQUEST });
   
-      const { data } = await axios.get(`${url}/api/v1/orders/me`);
+      const { data } = await axios.get(`/api/v1/orders/me`);
   
       dispatch({ type: MY_ORDERS_SUCCESS, payload: data.orders });
     } catch (error) {
@@ -65,10 +68,11 @@ export const myOrders = () => async (dispatch) => {
 
 // Get Order Details
 export const getOrderDetails = (id) => async (dispatch) => {
+
     try {
       dispatch({ type: ORDER_DETAILS_REQUEST });
   
-      const { data } = await axios.get(`${url}/api/v1/order/${id}`);
+      const { data } = await axios.get(`/api/v1/order/${id}`);
   
       dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
     } catch (error) {
@@ -82,10 +86,11 @@ export const getOrderDetails = (id) => async (dispatch) => {
 
 // All order  -----Admin
 export const getAllOrders = () => async (dispatch) => {
+
   try {
     dispatch({ type: ALL_ORDERS_REQUEST });
 
-    const { data } = await axios.get(`${url}/api/v1/admin/orders`);
+    const { data } = await axios.get(`/api/v1/admin/orders`);
 
     dispatch({ type: ALL_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
@@ -98,6 +103,7 @@ export const getAllOrders = () => async (dispatch) => {
 
 // Update Order
 export const updateOrder = (id, order) => async (dispatch) => {
+ 
   try {
     dispatch({ type: UPDATE_ORDER_REQUEST });
 
@@ -107,7 +113,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
     //   },
     // };
     const { data } = await axios.put(
-      `${url}/api/v1/admin/order/${id}`,
+      `/api/v1/admin/order/${id}`,
       order
       
     );
@@ -123,10 +129,11 @@ export const updateOrder = (id, order) => async (dispatch) => {
 
 // Delete Order
 export const deleteOrder = (id) => async (dispatch) => {
+  
   try {
     dispatch({ type: DELETE_ORDER_REQUEST });
 
-    const { data } = await axios.delete(`${url}/api/v1/admin/order/${id}`);
+    const { data } = await axios.delete(`/api/v1/admin/order/${id}`);
 
     dispatch({ type: DELETE_ORDER_SUCCESS, payload: data.success });
   } catch (error) {

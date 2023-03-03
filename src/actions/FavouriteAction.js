@@ -1,13 +1,12 @@
 import { ADD_TO_FAVOURITE,  REMOVE_FROM_FAVOURITE}
 from "../constans/FavouriteConstans";
 import axios from "axios";
+// import { url } from "./url";
 
 // Add to favourites
 export const addFavouriteItemsToCart = (id,quantity) => async (dispatch, getState) =>{
 
-    const url = "https://cultimax-gps52376.b4a.run"
-
-    const {data} = await axios.get(`${url}/api/v1/products/${id}`)
+    const {data} = await axios.get(`/api/v1/products/${id}`)
     
     // .then(function (response) {
     //     console.log(response);

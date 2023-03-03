@@ -4,11 +4,13 @@ import {
     SAVE_SHIPPING_INFO,
   } from "../constans/CartConstans";
   import axios from "axios";
+// import { url } from "./url";
   
-  const url = "https://cultimax-gps52376.b4a.run"
+
+  // console.log(url);
   // Add to Cart ---Product
   export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-    const { data } = await axios.get(`${url}/api/v1/products/${id}`);
+    const { data } = await axios.get(`/api/v1/products/${id}`);
     // console.log(data)
   
     dispatch({
