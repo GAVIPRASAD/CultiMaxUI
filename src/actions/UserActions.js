@@ -25,13 +25,16 @@ import {
   UPDATE_PROFILE_SUCCESS,
 } from "../constans/UserConstans";
 import axios from "axios";
+
+const url = "https://cultimax-gps52376.b4a.run"
+
 // Login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
     // const config = { headers: { "Content-Type": "application/json" } };
     const { data } = await axios.post(
-      `/api/v1/login`,
+      `${url}/api/v1/login`,
       { email, password },
     //   config
     );
@@ -51,7 +54,7 @@ export const register = (userData) => async (dispatch) => {
 
     //   const config = { headers: { "Content-Type": "multipart/form-data" } }; ,config in post method to use this
     const data = await axios
-      .post(`/api/v1/registration`, userData)
+      .post(`${url}/api/v1/registration`, userData)
       .then(function (response) {
         // console.log(response);
       })
@@ -77,7 +80,7 @@ export const loadUser = () => async (dispatch) =>{
       // const config = { headers:{ "Content-Type": "application/json"} };
 
       const {data} = await axios.get(
-          `/api/v1/me`);
+          `${url}/api/v1/me`);
            
      dispatch({type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {  
@@ -88,7 +91,7 @@ export const loadUser = () => async (dispatch) =>{
 // Log out user
 export const logout = () => async (dispatch) =>{
   try {        
-    await axios.post(`/api/v1/logout`).then(function (response) {
+    await axios.post(`${url}/api/v1/logout`).then(function (response) {
       // console.log(response);
     })
     .catch(function (error) {
@@ -108,7 +111,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.post(`/api/v1/password/forgot`, email, config);
+    const { data } = await axios.post(`${url}/api/v1/password/forgot`, email, config);
 
     dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: data.message });
   } catch (error) {
@@ -126,7 +129,7 @@ export const updatePassword = (password) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.put(`/api/v1/me/update/password`, password, config);
+    const { data } = await axios.put(`${url}/api/v1/me/update/password`, password, config);
 
     dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data.success });
   } catch (error) {
@@ -146,7 +149,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
     // const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/api/v1/password/reset/${token}`,
+      `${url}/api/v1/password/reset/${token}`,
       passwords,
       // config
     );
@@ -168,7 +171,7 @@ export const updateProfile = (userData) => async (dispatch) => {
 
     // const config = { headers: { "Content-Type": "multipart/form-data" } }; -, config after userdata in axios
 
-    const { data } = await axios.put(`/api/v1/me/update/info`, userData).catch(function (error) {
+    const { data } = await axios.put(`${url}/api/v1/me/update/info`, userData).catch(function (error) {
       // console.log(error);
       
     });

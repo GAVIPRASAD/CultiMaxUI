@@ -4,7 +4,10 @@ import axios from "axios";
 
 // Add to favourites
 export const addFavouriteItemsToCart = (id,quantity) => async (dispatch, getState) =>{
-    const {data} = await axios.get(`/api/v1/products/${id}`)
+
+    const url = "https://cultimax-gps52376.b4a.run"
+
+    const {data} = await axios.get(`${url}/api/v1/products/${id}`)
     
     // .then(function (response) {
     //     console.log(response);
