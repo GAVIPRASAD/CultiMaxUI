@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import TouchAppIcon from '@mui/icons-material/TouchApp';
 import Loader from "../Loader/Loader";
 
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -39,6 +40,11 @@ const Home = () => {
       <Slides />
       {/* mid page */}
       <div className="hrl" />
+      {/* <Link to={"/products"} style={{textDecoration:"", color:"blue"}}>
+      <h2 className="homeHeading" style={{ fontSize: "3.2rem",textDecoration:"none" , fontFamily:"cursive",}}>
+        All Products
+      </h2>
+      </Link> */}
       <Link to={"/products"} style={{textDecoration:"none"}}>
       <h2 className="homeHeading" style={{ fontSize: "3.2rem",textDecoration:"none" }}>
         Categories
@@ -162,8 +168,11 @@ const Home = () => {
       </>
 }
 
+      {/* <Accordiandescription /> */}
+
       {/* Footer */}
       <Footer />
+
       <Metadata title={"CultiMax || Home"} />
     </>
   );

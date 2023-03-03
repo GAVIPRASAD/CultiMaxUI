@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, myOrders } from "../../actions/OrderAction";
 import Metadata from "../../more/Metadata";
 import Appbar from "../Home/Appbar";
+import Badge from 'react-bootstrap/Badge';
 import NotFound from "../../more/NotFound";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -52,25 +53,25 @@ const MyOrder = () => {
                       <Item
                         style={{
                           fontSize: "1.2rem",
-                          border: "2px solid orange",
+                          border: "2px solid blue",
                           marginBottom: "1rem",
                         }}
                       >
                         <div key={index}>
-                          Product:ID :
+                          {/* Product:ID :
                           <span style={{ color: "hsl(64, 100%, 6%)" }}>
                             {item._id}
                           </span>
-                          <br />
+                          <br /> */}
                           order-id:{" "}
                           <span style={{ color: "hsl(64, 100%, 6%)" }}>
                             {item.paymentInfo.id}
                           </span>
                           <br />
-                          <>
+                          <div >
                             {item.orderItems &&
                               item.orderItems.map((order) => (
-                                <div key={order._id}>
+                                <div key={order._id} style={{borderBottom:"3px solid orange", borderTop:"3px solid orange",borderRadius:"10px", margin:"1.2rem"}}>
                                   Item-Name:{" "}
                                   <span style={{ color: "hsl(64, 100%, 6%)" }}>
                                     {order.name}
@@ -79,7 +80,7 @@ const MyOrder = () => {
                                   Item-price:{" "}
                                   <span style={{ color: "hsl(64, 100%, 6%)" }}>
                                     {" "}
-                                    {order.price}{" "}
+                                    ₹{order.price}{" "}
                                   </span>
                                   <br />
                                   Item-quantity:{" "}
@@ -90,12 +91,14 @@ const MyOrder = () => {
                                   <br />
                                 </div>
                               ))}
-                          </>
+                          </div>
                           Total-Price:
-                          <span style={{ color: "hsl(64, 100%, 6%)" }}>
+                          <Badge bg="danger">
+                          <span style={{ color: "white", fontFamily:"cursive" }}>
                             {" "}
-                            {item.totalPrice}
+                            ₹{item.totalPrice}
                           </span>
+                          </Badge>
                           <br />
                           Address:{" "}
                           <span style={{ color: "hsl(64, 100%, 6%)" }}>

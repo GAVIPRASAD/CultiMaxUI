@@ -145,8 +145,8 @@ const ProductDetails = () => {
   const addToCartHandler = () => {
     if (product.stock > 0) {
       dispatch(addItemsToCart(id, quantity));
-      navigate("/cart")
       toast.success("Product Added to cart");
+      // navigate("/cart")
     } else {
       toast.error("Product stock limited");
     }
@@ -187,18 +187,19 @@ const ProductDetails = () => {
               <Grid container spacing={2}>
                 <Grid item xs={12} md={8} lg={6} autoFocus>
                   <Item style={{ borderRadius: "10px" }}>
-                    <Carousel>
+                    <Carousel slide pause >
                       {/* <img className="d-block w-100" src={img&&img.url} alt="Products" /> 
                     // let img = product.images&&product.images[0];*/}
                       {product.images &&
                         product.images.map((item, i) => (
-                          <Carousel.Item key={i}>
+                          <Carousel.Item key={i} interval={2000}>
                             <img
                               style={{
                                 height: "50vh",
                                 width: "auto",
                                 padding: "0.2rem",
                                 borderRadius: "10px",
+                                justifyContent:"center"
                               }}
                               className="CarouselImage"
                               key={i}
@@ -357,7 +358,7 @@ const ProductDetails = () => {
                         </Button>
                       </ButtonGroup>
                       <span style={{ fontSize: "1.2rem", marginTop: "1.2rem" }}>
-                        <b>{product.Stock < 1 ? "OutOfStock" : "InStock"}</b>
+                        <b>{product.stock < 1 ? "Out Of Stock" : "InStock"}</b>
                       </span>
                     </Box>
                   </Item>

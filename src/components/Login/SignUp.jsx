@@ -72,7 +72,7 @@ export default function SignUp({ history }) {
     function refreshPage() {
       window.location.reload(false);
     }
-
+    
     if (name === "" && password === "" && email === "") {
       toast("Enter details");
     }
@@ -80,10 +80,12 @@ export default function SignUp({ history }) {
       if (validator.isEmail(email)) {
         if (validator.isStrongPassword(password)) {
           dispatch(register(myForm));
+          navigate("/Login");
           refreshPage();
         } else {
           toast(
-            "Enter Valid Password\n{ minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }"
+            "Enter Valid Password\n Password should contain min 8 letters (min 1 uppercase, min 1 number, and min 1 symbol"
+            // "Enter Valid Password\n{ minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }"
           );
         }
       } else {
@@ -95,7 +97,7 @@ export default function SignUp({ history }) {
   };
   const location = useLocation();
   const navigate = useNavigate();
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  // const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
     if (error) {
@@ -106,7 +108,7 @@ export default function SignUp({ history }) {
 
     if (isAuthenticated) {
       // history.push(redirect);
-      navigate(redirect);
+      navigate("/Login");
     }
   }, [dispatch, error, alert, history, isAuthenticated]);
 
@@ -270,6 +272,7 @@ export default function SignUp({ history }) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        limit={1}
         theme="light"
       />
     </ThemeProvider>

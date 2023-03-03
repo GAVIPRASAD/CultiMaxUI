@@ -27,7 +27,7 @@ export default function PaymentForm() {
     shippingInfo,
     orderItems: cartItems,
     itemsPrice: orderInfo.subtotal,
-    taxPrice: 300,
+    taxPrice:1,
     shippingPrice: orderInfo.shippingCharges,
     totalPrice: orderInfo.totalPrice,
   };

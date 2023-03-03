@@ -116,7 +116,7 @@ function Appbar({ product }) {
             </NavDropdown>
             <Link to={"/about"} className="linkto">
               <Nav className="navli">
-                <i>Contact</i>
+                <i>About</i>
               </Nav>
             </Link>
           </Nav>

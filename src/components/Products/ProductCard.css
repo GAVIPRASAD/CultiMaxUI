@@ -1,6 +1,15 @@
 /* Card  */
-.ProductCard {
-  margin: 0.6rem 0.3rem;
+
+#ProductCard {
+  margin: 0.4rem 0.3rem;
+  /* margin: 0.6rem 0.3rem; */
+  /* maxwidth: 340;
+  height: 300;
+  width: 270; */
+}
+.cardImage {
+  /* height: 120;
+  width: 260; */
 }
 * {
   font-family: Ubuntu;
@@ -21,4 +30,17 @@ Button:hover {
   border-radius: 10px;
   padding: 1px;
   /* border: 2px solid rgb(236, 139, 48); */
+}
+
+@media screen and (max-width: 600px) {
+  #ProductCard {
+    /* background-color: lightblue; */
+    maxWidth:340;
+    height: 290;
+    width: 150;
+  }
+  #cardImage {
+    height: 120;
+    width: 150;
+  }
 }

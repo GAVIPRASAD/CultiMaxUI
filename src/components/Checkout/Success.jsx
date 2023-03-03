@@ -35,11 +35,11 @@ const Success = () => {
  
     <Button
         variant="contained"
-        onClick={()=> navigate("/")}
+        onClick={()=> navigate("/orders/me")}
         color="warning"
         sx={{ mt: 3, ml: 1 }}
       >
-       Home
+       View Orders
       </Button>
       </Paper>
       </Container>

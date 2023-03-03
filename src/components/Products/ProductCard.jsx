@@ -5,11 +5,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import "./ProductCard.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 import Badge from 'react-bootstrap/Badge';
+import "./ProductCard.css";
 
 const ProductCard = ({ product }) => {
   const options = {
@@ -27,17 +27,23 @@ const ProductCard = ({ product }) => {
       {/* maxWidth: 345 , height:333, width:280 */}
       <Link to={`/products/${product._id}`} style={{ textDecoration: "none" }}>
         <Card
-          // sx={{ maxWidth: 345, height: 350, width: 310 }}
-          sx={{ maxWidth: 340, height: 200, width: 210 }}
+          // sx={{ maxWidth: 270, height: 300, width: 270 }}
+          // sx={{ maxWidth: 340, height: 290, width: 150 }}
           className="ProductCard"
+          id="ProductCard"
           style={{
+            maxWidth:340,
+            height: 300, width: 270,
             borderRadius: "10px",
             border: "7px solid aliceBlue",
             boxShadow: "5px 5px 12px #73e600",
           }}
         >
           <CardMedia
-            sx={{ height: 100 }}
+          className="cardImage"
+              id="cardImage"
+            // sx={{ height: 120 , width:260}}
+            style={{height: 150 , width:260}}
             image={product && product.images[0].url}
             title={product && product.name}
           />
@@ -55,7 +61,7 @@ const ProductCard = ({ product }) => {
               color="text.secondary"
               style={{ fontFamily: "Ubuntu" }}
             >
-              {(product && product.description).toString().substring(0,38)}...
+              {(product && product.description).toString().substring(0,28)}...
             </Typography>
             <Typography
               variant="body2"
@@ -71,8 +77,8 @@ const ProductCard = ({ product }) => {
               />
             </Typography>
           <Badge bg="warning" text="dark">
-             CultiMax Assured
-           </Badge>
+        CultiMax Assured
+      </Badge>
           </CardContent>
           {/* <CardActions>
             <Button

@@ -69,8 +69,8 @@ export default function Products(props) {
           backgroundColor: "whitesmoke",
           fontSize: "2.2rem",
           borderRadius: "10px",
-          margin: "0.5rem 0.5rem",
-          padding: "0.4rem",
+          margin: "0.5rem 0.1rem",
+          padding: "0.1rem",
         }}
       >
         <Typography
@@ -105,7 +105,7 @@ export default function Products(props) {
                   display: "flex",
                   flexDirection: "row",
                   flexGrow: "initial",
-                  margin: "0.8rem",
+                  margin: "0.2rem",
                   marginLeft: "2.5rem",
                   // textAlign:"center"
                 }}

@@ -22,6 +22,8 @@ import {
 } from "../../actions/UserActions";
 import { useEffect } from "react";
 import { UPDATE_PROFILE_RESET } from "../../constans/UserConstans";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme();
 
@@ -62,13 +64,13 @@ export default function UpdateUser() {
     }
 
     if (error) {
-      alert(error);
+      toast.error(error);
       navigate("/myprofile")
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert("Profile updated successfully");
+      toast.success("Profile updated successfully");
       dispatch(loadUser());
 
       navigate("/myprofile");
@@ -77,7 +79,7 @@ export default function UpdateUser() {
         type: UPDATE_PROFILE_RESET,
       });
     }
-  }, [dispatch, error, alert, isUpdated, user]);
+  }, [dispatch, error, toast, isUpdated, user]);
 
   return (
     <>
@@ -163,6 +165,19 @@ export default function UpdateUser() {
           {/* <Footer /> */}
         </ThemeProvider>
       )}
+       <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        //limit={2}
+      />
     </>
   );
 }

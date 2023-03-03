@@ -23,7 +23,7 @@ export default function Review() {
 
     const subtotal = productPrice 
       // eslint-disable-next-line
-    const shippingCharges = productPrice > 99 ? 0 : 50;
+    const shippingCharges = productPrice > 300 ? 0 : 30;
     
     const totalPrice = subtotal + shippingCharges;
   
@@ -52,6 +52,9 @@ export default function Review() {
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
+      <Typography variant="p" style={{color:'orangered'}} gutterBottom>
+        Make sure that you have items in cart that you want to buy
+      </Typography>
       <List disablePadding>
       <div className="confirmCartItemsContainer">
              {cartItems.map((item) => (
@@ -65,6 +68,11 @@ export default function Review() {
                  <span style={{marginLeft:"1.2rem"}}>
                    {item.quantity} X ₹{item.price} ={" "}
                    <b>₹{item.price * item.quantity}</b>
+                 </span>
+                 <br />
+                 <span style={{marginLeft:"0rem"}}>
+                      {`Shipping Charges = `} 
+                   <b>₹{shippingCharges}</b>
                  </span>
                </div>
              ))

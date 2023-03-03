@@ -18,6 +18,8 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Loader from "../Loader/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -43,6 +45,7 @@ const UserData = ({ user }) => {
   const logoutHandler = () => {
     dispatch(logout());
     setLoggedOut(true);
+    toast.success("Logged Out Successfully")
   };
 
   const [loggedOut, setLoggedOut] = useState(false);
@@ -361,6 +364,18 @@ const UserData = ({ user }) => {
           </Container>
         </>
       )}
+         <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 };
