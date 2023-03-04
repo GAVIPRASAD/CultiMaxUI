@@ -28,6 +28,7 @@ import PaymentForm from "./components/Checkout/PaymentForm";
 import Success from "./components/Checkout/Success";
 import MyOrder from "./components/User/MyOrder";
 import Dashboard from "./components/Admin/Dashboard";
+import Review from "./components/Checkout/Review";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -63,6 +64,7 @@ function App() {
           <Route path="/favourites" element={isAuthenticated ? <Favourites/> : <Login/>}/>
           <Route path="/cart" element={isAuthenticated ? <Cart/> : <Login/>}/>
           <Route path="/checkout" element={isAuthenticated ? <Checkout/> : <Login/>}/>
+          <Route path="/revieworder" element={isAuthenticated ? <Review/> : <Login/>}/>
           <Route path="/payment" element={isAuthenticated ? <PaymentForm/> : <Login/>}/>
           <Route path="/success" element={isAuthenticated ? <Success/> : <Login/>}/>
           <Route path="/orders/me" element={isAuthenticated ? <MyOrder/> : <Login/>}/>

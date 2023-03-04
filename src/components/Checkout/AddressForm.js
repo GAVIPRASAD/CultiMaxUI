@@ -8,8 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { saveShippingInfo } from "../../actions/CartAction";
 import { Button } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import NotFound from "../../more/NotFound";
+import { useNavigate } from "react-router-dom";
+
+
 export default function AddressForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { shippingInfo } = useSelector((state) => state.cart);
 
@@ -24,17 +31,25 @@ export default function AddressForm() {
   const shippingSubmit = (e) => {
     e.preventDefault();
     // console.log("true")
-    if (phoneNo.length < 10 && phoneNo.length > 10) {
-      alert("Phone Number should be 10 digits");
+    if (phoneNo.length < 10 || phoneNo.length > 10) {
+      toast.error("Phone Number should be 10 digits");
       return;
     }
-    else{
-    alert("Address Saved")
-    dispatch(
-      saveShippingInfo({ name, address, city, state, zip, country, phoneNo })
-    );
+    if (name === "" || address === "" || phoneNo==="" && city === ""  &&   state === "") {
+      toast.error("Enter details");
     }
-    // history.push("/order/confirm");
+    else{
+      if (name.length <=5 || address.length <=5 && city.length <=5 && state.length <=5 ) {
+        toast.error("Enter valid details and enter every field");
+      }
+      else{
+        toast.success("Address Saved")
+        dispatch(saveShippingInfo({ name, address, city, state, zip, country, phoneNo }));
+        // navigate("/revieworder")
+      }
+    }
+  
+    
   };
 
   return (
@@ -156,6 +171,19 @@ export default function AddressForm() {
          
         </Grid>
       </form>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        limit={1}
+        theme="light"
+      />
     </React.Fragment>
   );
 }

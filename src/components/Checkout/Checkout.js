@@ -20,6 +20,9 @@ import Footer from "../Home/Footer";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import { useNavigate } from "react-router-dom";
 import ForwardIcon from "@mui/icons-material/Forward";
+import { useState } from "react";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 function Copyright() {
   return (
@@ -55,6 +58,10 @@ const theme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    setTimeout(() => setShow(true), 6000);
+  }, []);  
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -70,16 +77,16 @@ export default function Checkout() {
 
   return (
     <div style={{ backgroundColor: "rgba(76, 139, 27, 0.956)" }}>
-      <ThemeProvider theme={theme}>
         <Metadata title="Checkout" />
         <CssBaseline />
         <Appbar>
           {/* <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Company name
+          Company name
           </Typography>
         </Toolbar> */}
         </Appbar>
+        <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
           <Paper
             variant="outlined"
@@ -151,10 +158,16 @@ export default function Checkout() {
                     color="warning"
                     sx={{ mt: 3, ml: 1 }}
                   >
-                    {activeStep === steps.length - 1 ? (
-                      <ForwardIcon style={{ fontSize: "1.8rem" }} />
-                    ) : (
-                      <ForwardIcon style={{ fontSize: "1.8rem" }} />
+                    {activeStep === steps.length - 1 ? (                                          
+                      <ForwardIcon style={{ fontSize: "1.8rem" }} />    
+                      // <></>                
+                      ) : (
+                        <>
+                        {
+                          show&&
+                        <ForwardIcon style={{ fontSize: "1.8rem" }} />
+                        }
+                      </>
                     )}
                   </Button>
                 </Box>

@@ -8,6 +8,8 @@ import { clearErrors, myOrders } from "../../actions/OrderAction";
 import Metadata from "../../more/Metadata";
 import Appbar from "../Home/Appbar";
 import Badge from 'react-bootstrap/Badge';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import NotFound from "../../more/NotFound";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -44,7 +46,7 @@ const MyOrder = () => {
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2} style={{ padding: "2rem" }}>
             <Metadata title={"MyOrders"} />
-            <Grid item xs={6} md={8}>
+            <Grid item xs={12} md={8}>
               <Item style={{ fontSize: "1.2rem", border: "2px solid orange" }}>
                 {orders &&
                   orders.map((item, index) => (
@@ -117,6 +119,19 @@ const MyOrder = () => {
           </Grid>
         </Box>
       </Box>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        //limit={2}
+      />
     </>
   );
 };
