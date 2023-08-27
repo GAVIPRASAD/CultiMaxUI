@@ -16,6 +16,7 @@ import { Button, Container } from "@mui/material";
 import { Link } from "react-router-dom";
 import TouchAppIcon from '@mui/icons-material/TouchApp';
 import Loader from "../Loader/Loader";
+import SpecialFeatures from "./SpecialFeatures";
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -58,6 +59,7 @@ const Home = () => {
           paddingTop: "0.5rem",
           paddingBottom: "0.5rem",
           marginTop: "1.2rem",
+          marginBottom: "2rem",
         }}
       >
         <Box sx={{ flexGrow: 1 }}>
@@ -150,7 +152,13 @@ const Home = () => {
         </Box>
       </Container>
 
-      <h2 className="homeHeading">Featured Products</h2>
+      <h3 className="homeHeading" style={{ fontSize: "3.2rem",textDecoration:"none" }}>
+        Special Features by CULTIMAX
+      </h3>
+      <SpecialFeatures/>
+
+      {/* products */}
+      <h2 className="homeHeading" style={{marginTop:"1.2rem"}}>Featured Products</h2>
       {loading ? <Loader/> :
       <>
       <div

@@ -1,0 +1,46 @@
+/* Card  */
+
+#SpecialFeaturesCard {
+  margin: 0.4rem 0.3rem;
+  /* margin: 0.6rem 0.3rem; */
+  /* maxwidth: 340;
+  height: 300;
+  width: 270; */
+}
+.cardImage {
+  /* height: 120;
+  width: 260; */
+}
+* {
+  font-family: Ubuntu;
+}
+
+Button {
+  color: chartreuse;
+}
+Button:hover {
+  color: rgb(255, 255, 255);
+  background-color: hsl(64, 100%, 19%);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.SpecialFeaturesCard:hover {
+  background-color: rgba(255, 255, 255, 0.951);
+  background-color: hsl(64, 100%, 91%);
+  border-radius: 10px;
+  padding: 1px;
+  /* border: 2px solid rgb(236, 139, 48); */
+}
+
+@media screen and (max-width: 600px) {
+  #ProductCard {
+    /* background-color: lightblue; */
+    maxWidth:340;
+    height: 290;
+    width: 150;
+  }
+  #cardImage {
+    height: 120;
+    width: 150;
+  }
+}

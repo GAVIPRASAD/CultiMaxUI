@@ -171,6 +171,7 @@ const ProductDetails = () => {
           <Input
             id="margin-none"
             autoFocus
+            readOnly
             size="small"
             style={{ fontSize: "0rem" }}
           />

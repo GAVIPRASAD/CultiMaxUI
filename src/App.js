@@ -29,6 +29,9 @@ import Success from "./components/Checkout/Success";
 import MyOrder from "./components/User/MyOrder";
 import Dashboard from "./components/Admin/Dashboard";
 import Review from "./components/Checkout/Review";
+import DiseaseDetection from "./components/MLFeatures/DiseaseDetection";
+import CropPrediction from "./components/MLFeatures/CropPrediction";
+import FertilizerRecommendation from "./components/MLFeatures/FertilizerRecommendation";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -75,6 +78,10 @@ function App() {
           <Route path="/myprofile/updateuser" element={isAuthenticated && <UpdateUser />}/>
           <Route path="/myprofile/forgotpassword" element={<ForgotPassword />}/>
           <Route path="/password/reset/:token" element={<ResetPassword />}/>
+
+          <Route path="/disease" element={<DiseaseDetection />}/>
+          <Route path="/crop" element={<CropPrediction />}/>
+          <Route path="/fertilizer" element={<FertilizerRecommendation />}/>
 
           <Route path = "/admin/dashboard" element={elem&&elem ? <Dashboard /> : <NotFound/> } /> 
 

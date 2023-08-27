@@ -6,6 +6,7 @@ import { forgotPasswordReducer, profileReducer, userReducer } from "./reducers/U
 import { favouriteReducer } from "./reducers/FavouriteReducer";
 import { cartReducer } from "./reducers/CartReducer";
 import { myOrdersReducer, newOrderReducer, orderDetailsReducer } from "./reducers/OrderReducer";
+import { cropPredictionReducer, diseaseDetectionReducer, fertilizerRecommendationReducer } from "./reducers/MLReducer";
 
 const reducer = combineReducers({
   products: productsReducer,
@@ -15,7 +16,10 @@ const reducer = combineReducers({
   myOrder: myOrdersReducer,
   myOrderDetails: orderDetailsReducer,
 
-
+  disease:diseaseDetectionReducer,
+  crop:cropPredictionReducer,
+  fertilizer:fertilizerRecommendationReducer,
+  
   user:userReducer,
   profile: profileReducer,
   forgotPassword:forgotPasswordReducer,

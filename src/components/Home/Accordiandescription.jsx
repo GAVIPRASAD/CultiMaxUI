@@ -65,6 +65,7 @@ export default function Accordiandescription() {
           </Typography>
         </AccordionDetails>
       </Accordion>
+
       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
           <Typography>Seeds</Typography>
@@ -75,6 +76,7 @@ export default function Accordiandescription() {
           </Typography>
         </AccordionDetails>
       </Accordion>
+
       <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
           <Typography>Irrigation</Typography>
@@ -85,6 +87,7 @@ export default function Accordiandescription() {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      
       <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
           <Typography>Pesticides</Typography>
