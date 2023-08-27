@@ -199,7 +199,7 @@ const DiseaseDetection = () => {
              {val?disease&&disease.plant:<></>}
              {val?disease&&disease.remedy:<></>} */}
 
-                {/* {val ? (
+                {val ? (
                   loading ? (
                     "Loading Results....."
                   ) : (
@@ -279,7 +279,7 @@ const DiseaseDetection = () => {
                   )
                 ) : (
                   ""
-                )} */}
+                )}
               </Item>
             </Grid>
           </Grid>
