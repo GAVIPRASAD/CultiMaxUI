@@ -46,6 +46,7 @@ const About = () => {
           "message":message
         }
         dispatch(submitContactForm(formm))
+        setVal(true)
         setEmail("")
         setMessage("")
         setName("")
@@ -187,7 +188,7 @@ const About = () => {
                     Send
                   <NearMeSharpIcon/>
                     </Button>
-                    {contactForm&&contactForm?`Submitted Successfully`:""}
+                  {val?(loading?"":contactForm&&contactForm?`Submitted`:""):""}
                 </Box>
               </Item>
             </Grid>
