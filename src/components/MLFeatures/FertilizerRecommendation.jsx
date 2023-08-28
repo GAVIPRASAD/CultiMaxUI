@@ -458,7 +458,7 @@ const FertilizerRecommendation = () => {
                           color: "rgb(19, 61, 77)",
                         }}
                       >
-                        {val?(loading?"Loading Results.....":`${fertilizer&&fertilizer}`):""}
+                        {/* {val?(loading?"Loading Results.....":`${fertilizer&&fertilizer}`):""} */}
                       </Typography>
                     </Item>
                   </Grid>

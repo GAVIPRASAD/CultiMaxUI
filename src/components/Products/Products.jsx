@@ -162,7 +162,7 @@ export default function Products(props) {
             }}
           >
             <Pagination  color="success"
-             count={Math.ceil(productsCount/8)}
+             count={Math.ceil(productsCount/10)}
              page={currentPage} 
              onChange={setCurrentPageNo}
             />

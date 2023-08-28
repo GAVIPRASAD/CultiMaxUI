@@ -7,6 +7,7 @@ import { favouriteReducer } from "./reducers/FavouriteReducer";
 import { cartReducer } from "./reducers/CartReducer";
 import { myOrdersReducer, newOrderReducer, orderDetailsReducer } from "./reducers/OrderReducer";
 import { cropPredictionReducer, diseaseDetectionReducer, fertilizerRecommendationReducer } from "./reducers/MLReducer";
+import { newContactFormReducer } from "./reducers/ContactFormReducer";
 
 const reducer = combineReducers({
   products: productsReducer,
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   disease:diseaseDetectionReducer,
   crop:cropPredictionReducer,
   fertilizer:fertilizerRecommendationReducer,
+  contactForm:newContactFormReducer,
   
   user:userReducer,
   profile: profileReducer,

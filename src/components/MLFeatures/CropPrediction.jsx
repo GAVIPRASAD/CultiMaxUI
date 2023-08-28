@@ -238,7 +238,7 @@ const CropPrediction = () => {
                   component="h5"
                   style={{ fontFamily: "inherit", color: "rgb(19, 61, 77)" }}
                 >                
-                   {val?(loading?"Loading Results.....":`${crop&&crop}`):""}
+                   {/* {val?(loading?"Loading Results.....":`${crop&&crop}`):""} */}
                 </Typography>
               </Item>
               
