@@ -6,7 +6,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import { Button, CardMedia, Container, FormControl, TextField, Typography } from "@mui/material";
+import { Button, CardMedia, Container, FormControl, Input, TextField, TextareaAutosize, Typography } from "@mui/material";
 import NearMeSharpIcon from '@mui/icons-material/NearMeSharp';
 import "./About.css";
 import logo from "../../utils/Images/Back/Cultimax.jpg";
@@ -168,20 +168,22 @@ const About = () => {
                     />
                   </FormControl>
                   <br />
-                  {/* <FormControl> */}
-                    <TextField
+                  <FormControl>
+                    <textarea
                       required
                       label="Message"
                       size="small"
+                      placeholder="Message"
                       value={message}
                       color="success"
                       multiline
                       maxRows={4}
+                      cols={26}
                       onChange={(e)=> {setMessage(e.target.value)}}
-                      style={{ paddingBottom: "5px", marginBottom: "0.6rem",
-                      width: "221px" }}
+                      style={{ padding: "6px", border:"1px solid #c2bba9", borderRadius:"5px" }}
+                      
                     />
-                  {/* </FormControl> */}
+                  </FormControl>
                   <br />
                   
                   <Button variant="contained" color="success" type="submit" style={{margin:"1rem"}}>
