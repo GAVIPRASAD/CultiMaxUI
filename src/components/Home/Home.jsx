@@ -163,7 +163,7 @@ const Home = () => {
       <>
       <div
         className="gridContainer"
-        style={{ margin: "0.2rem", marginLeft: "2.5rem" }}
+        // style={{ margin: "0.2rem", marginLeft: "2.5rem" }}
       >
         {products &&
           products.map((product) => (
@@ -177,9 +177,13 @@ const Home = () => {
 }
 
       {/* <Accordiandescription /> */}
-
-      {/* Footer */}
+      <Paper >
+      <i style={{ fontSize: "1.3rem", color: "rgb(37, 86, 97)",display:"flex", justifyContent:"center", fontFamily:"cursive", marginTop:"0.6rem" }}>
+                    One stop Destination for all farming needs. --CultiMax
+                    </i>
       <Footer />
+      </Paper>
+      {/* Footer */}
 
       <Metadata title={"CultiMax || Home"} />
     </>

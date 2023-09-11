@@ -25,7 +25,7 @@ const SpecialFeatures = () => {
     
   return (
     <>
-    <div className="container" style={{display:"flex",flexDirection:"row",flexWrap:"wrap",marginLeft: "109.600",marginRight: "60px"}}>
+    <div className="container" style={{display:"flex",flexDirection:"row",flexWrap:"wrap",justifyContent:"space-around"}}>
       {
       products &&
         products.map((product) => (

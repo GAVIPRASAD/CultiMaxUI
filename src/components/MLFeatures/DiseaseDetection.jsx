@@ -12,6 +12,7 @@ import {
   Container,
   Input,
   InputLabel,
+  LinearProgress,
   TextField,
   Typography,
 } from "@mui/material";
@@ -199,9 +200,9 @@ const DiseaseDetection = () => {
              {val?disease&&disease.plant:<></>}
              {val?disease&&disease.remedy:<></>} */}
 
-                {/* {val ? (
+                {val ? (
                   loading ? (
-                    "Loading Results....."
+                    <LinearProgress color="success" />
                   ) : (
                     <div style={{padding:"20px"}}>
                       <Typography
@@ -253,7 +254,7 @@ const DiseaseDetection = () => {
                       <Typography
                         variant="p"
                         component="p"
-                        align="justify"
+                        // align="justify"
                         style={{
                           fontFamily: "Ubuntu",
                           color: "rgb(19, 61, 77)",
@@ -279,7 +280,7 @@ const DiseaseDetection = () => {
                   )
                 ) : (
                   ""
-                )} */}
+                )}
               </Item>
             </Grid>
           </Grid>

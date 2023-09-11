@@ -101,6 +101,7 @@ Nav,i:hover{
     flex-direction: row;
     flex-wrap: wrap;
     flex-grow: inherit;
+    justify-content: space-between;
     /* margin-left: 2.5rem; */
 }
 

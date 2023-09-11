@@ -15,6 +15,7 @@ import {
   FormHelperText,
   Input,
   InputLabel,
+  LinearProgress,
   MenuItem,
   OutlinedInput,
   Select,
@@ -424,7 +425,7 @@ const FertilizerRecommendation = () => {
                       <MenuItem value={"Millets"}>Millets</MenuItem>
                       <MenuItem value={"Oil Seeds"}>Oil Seeds</MenuItem>
                       <MenuItem value={"Paddy"}>Paddy</MenuItem>
-                      <MenuItem value={"Ground Nut"}>Ground Nut</MenuItem>
+                      <MenuItem value={"Ground Nuts"}>Ground Nut</MenuItem>
                       <MenuItem value={"Tobacco"}>Tobacco</MenuItem>
                       <MenuItem value={"Barley"}>Barley</MenuItem>
                     </TextField>
@@ -458,7 +459,7 @@ const FertilizerRecommendation = () => {
                           color: "rgb(19, 61, 77)",
                         }}
                       >
-                        {/* {val?(loading?"Loading Results.....":`${fertilizer&&fertilizer}`):""} */}
+                        {val?(loading?<LinearProgress color="success" />:`${fertilizer&&fertilizer}`):""}
                       </Typography>
                     </Item>
                   </Grid>

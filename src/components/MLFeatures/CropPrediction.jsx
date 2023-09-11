@@ -15,6 +15,7 @@ import {
   FormHelperText,
   Input,
   InputLabel,
+  LinearProgress,
   OutlinedInput,
   TextField,
   Typography,
@@ -239,6 +240,8 @@ const CropPrediction = () => {
                   style={{ fontFamily: "inherit", color: "rgb(19, 61, 77)" }}
                 >                
                    {/* {val?(loading?"Loading Results.....":`${crop&&crop}`):""} */}
+                   {val?(loading?<LinearProgress color="success" />:`${crop&&crop}`):""}
+                   
                 </Typography>
               </Item>
               
