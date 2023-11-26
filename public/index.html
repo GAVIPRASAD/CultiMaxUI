@@ -27,9 +27,28 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <script>
+      document.onkeydown = (e) => {
+        if (e.key == 123) {
+            e.preventDefault();
+        }
+        if (e.ctrlKey && e.shiftKey && e.key == 'I') {
+            e.preventDefault();
+        }
+        if (e.ctrlKey && e.shiftKey && e.key == 'C') {
+            e.preventDefault();
+        }
+        if (e.ctrlKey && e.shiftKey && e.key == 'J') {
+            e.preventDefault();
+        }
+        if (e.ctrlKey && e.key == 'U' || e.ctrlKey && e.key == 'u') {
+            e.preventDefault();
+        }
+    };
+    </script>
     <title>CultiMax</title>
   </head>
-  <body>
+  <body oncontextmenu="return false">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script
