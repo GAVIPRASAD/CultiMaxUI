@@ -72,10 +72,10 @@ const FertilizerRecommendation = () => {
     for (var i = 0; i < Maxdata.length - 2; i++) {
       if (data[i] <= Number(0)) {
         toast.error(values[i] + " Should not be less than or equal to 0");
-        if (data[i] > Maxdata[i]) {
-          toast.error(values[i] + " Should not be greater than " + Maxdata[i]);
-          return false;
-        }
+        return false;
+      }
+      else if (data[i] > Maxdata[i]) {
+        toast.error(values[i] + " Should not be greater than " + Maxdata[i]);
         return false;
       }
     }

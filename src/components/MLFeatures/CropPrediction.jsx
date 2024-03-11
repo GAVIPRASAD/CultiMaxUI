@@ -55,13 +55,13 @@ const CropPrediction = () => {
   const Maxdata =[140,145,205,45,100,14,300];
 
   const validvalues=(data)=>{
-      for(var i=0;i<Maxdata.length;i++){
-        if (data[i]<= Number(0)) { 
-          toast.error(values[i] +" Should not be less than 0");
-          if (data[i]>Maxdata[i]) {
-            toast.error(values[i] +" Should not be greater than "+Maxdata[i])
-            return false;
-          }
+    for(var i=0;i<Maxdata.length;i++){
+      if (data[i]<= Number(0)) { 
+        toast.error(values[i] +" Should not be less than 0");
+          return false;
+        }
+        else if (data[i]>Maxdata[i]) {
+          toast.error(values[i] +" Should not be greater than "+Maxdata[i])
           return false;
         }
       }
